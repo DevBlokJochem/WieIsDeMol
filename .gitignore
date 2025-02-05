@@ -20,6 +20,8 @@
 *.rar
 
 # Idea
+.idea
+.gradle
 /.idea
 /.gradle
 
