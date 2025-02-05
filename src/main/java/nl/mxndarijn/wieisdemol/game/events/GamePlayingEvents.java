@@ -18,6 +18,7 @@ import nl.mxndarijn.wieisdemol.managers.items.ItemManager;
 import nl.mxndarijn.wieisdemol.managers.language.LanguageManager;
 import nl.mxndarijn.wieisdemol.managers.language.LanguageText;
 import nl.mxndarijn.wieisdemol.managers.shulkers.ShulkerInformation;
+import nl.mxndarijn.wieisdemol.map.mapplayer.MapPlayer;
 import org.bukkit.*;
 import org.bukkit.block.Chest;
 import org.bukkit.block.ShulkerBox;
@@ -434,9 +435,19 @@ public class GamePlayingEvents extends GameEvent {
             if (data != null && data.equalsIgnoreCase("false"))
                 e.getDrops().remove(item);
         }
+        if(p.getKiller() == null) return;
+        Game game = optionalGamePlayer.get().getGame();
+        MapPlayer killer = getMapPlayer(p.getKiller(), game);
+        MapPlayer player = getMapPlayer(p, game);
 
-
+        if(killer == null || player == null) return;
+        if(killer.getRole() != Role.SHAPESHIFTER) return;
+        killer.setRole(player.getRole());
+        player.setRole(Role.SHAPESHIFTER);
     }
 
-
+    private MapPlayer getMapPlayer(Player player, Game game) {
+        Optional<GamePlayer> gamePlayer = game.getColors().stream().filter(gPlayer -> gPlayer.getPlayer().isPresent() && gPlayer.getPlayer().get() == player.getUniqueId()).findFirst();
+        return gamePlayer.map(GamePlayer::getMapPlayer).orElse(null);
+    }
 }

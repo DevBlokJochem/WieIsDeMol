@@ -81,6 +81,7 @@ public class PlayerManagementItem extends MxItem {
                                                     .setItem(getItemForRole(Role.SPELER), 11, getClickForRole(p, mapPlayer, Role.SPELER, mxInv1))
                                                     .setItem(getItemForRole(Role.MOL), 13, getClickForRole(p, mapPlayer, Role.MOL, mxInv1))
                                                     .setItem(getItemForRole(Role.EGO), 15, getClickForRole(p, mapPlayer, Role.EGO, mxInv1))
+                                                    .setItem(getItemForRole(Role.SHAPESHIFTER), 17, getClickForRole(p, mapPlayer, Role.SHAPESHIFTER, mxInv1))
                                                     .setItem(MxDefaultItemStackBuilder.create(Material.DIAMOND_SWORD)
                                                             .setName(ChatColor.GRAY + "Toggle peacekeeper")
                                                             .addBlankLore()
@@ -190,7 +191,7 @@ public class PlayerManagementItem extends MxItem {
                                                 .addBlankLore()
                                                 .addLore(ChatColor.YELLOW + "Klik hier om de speler te killen / rebornen.")
                                                 .build(),
-                                        16,
+                                        8,
                                         (mxInv1, e2) -> {
                                             gamePlayer.setAlive(!gamePlayer.isAlive());
                                             p.closeInventory();

@@ -788,6 +788,7 @@ public class VulTool extends MxItem {
                                     .setItem(getItemForRole(Role.SPELER), 11, getClickForRole(p, mapPlayer, Role.SPELER, colorInv))
                                     .setItem(getItemForRole(Role.MOL), 13, getClickForRole(p, mapPlayer, Role.MOL, colorInv))
                                     .setItem(getItemForRole(Role.EGO), 15, getClickForRole(p, mapPlayer, Role.EGO, colorInv))
+                                    .setItem(getItemForRole(Role.SHAPESHIFTER), 17, getClickForRole(p, mapPlayer, Role.SHAPESHIFTER, colorInv))
                                     .build());
                         })
                 .setItem(MxDefaultItemStackBuilder.create(Material.DIAMOND_SWORD)

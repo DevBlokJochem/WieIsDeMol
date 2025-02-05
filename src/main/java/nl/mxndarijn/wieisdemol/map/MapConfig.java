@@ -44,7 +44,7 @@ public class MapConfig {
         this.owner = owner;
         this.dateCreated = LocalDateTime.now();
         this.dateModified = LocalDateTime.now();
-        this.peacekeeperKills = 1;
+        this.peacekeeperKills = 2;
         this.sharedPlayers = new ArrayList<>();
         this.colors = new ArrayList<>();
         presetConfig.getColors().forEach((c, l) -> {
@@ -73,7 +73,7 @@ public class MapConfig {
                 .toList());
         this.dateModified = LocalDateTime.parse(fc.getString(MapConfigValue.DATE_MODIFIED.getConfigValue(), LocalDateTime.MIN.toString()));
         this.dateCreated = LocalDateTime.parse(fc.getString(MapConfigValue.DATE_CREATED.getConfigValue(), LocalDateTime.MIN.toString()));
-        this.peacekeeperKills = fc.getInt(MapConfigValue.PEACEKEEPER_KILLS.getConfigValue(), 1);
+        this.peacekeeperKills = fc.getInt(MapConfigValue.PEACEKEEPER_KILLS.getConfigValue(), 2);
 
         this.colors = new ArrayList<>();
         ConfigurationSection colorSection = fc.getConfigurationSection(MapConfigValue.COLORS.getConfigValue());
