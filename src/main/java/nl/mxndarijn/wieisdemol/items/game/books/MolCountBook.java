@@ -45,17 +45,14 @@ public class MolCountBook extends Book {
                 if (isItemTheSame(value)) {
                     if(!canItemExecute(p, key, value, BookFailurePlayersHolder.create().setData(AvailablePerson.EXECUTOR, p)))
                         return;
-                    AtomicInteger count = new AtomicInteger(0);
-                    game.getColors().forEach(g -> {
-                        if (!g.isAlive())
-                            return;
-                        if (g.getPlayer().isEmpty())
-                            return;
-                        if (g.getMapPlayer().getRole() == Role.MOL) {
-                            count.getAndIncrement();
-                        }
-                    });
-                    p.sendMessage(LanguageManager.getInstance().getLanguageString(LanguageText.GAME_MOLCOUNT_MESSAGE, Collections.singletonList(count.get() + "")));
+                    int count = 0;
+                    for (GamePlayer g : game.getColors()) {
+                        if(!g.isAlive()) continue;
+                        if(g.getPlayer().isEmpty()) continue;
+                        if(g.getMapPlayer().getRole() != Role.MOL) continue;
+                        count++;
+                    }
+                    p.sendMessage(LanguageManager.getInstance().getLanguageString(LanguageText.GAME_MOLCOUNT_MESSAGE, Collections.singletonList(count + "")));
                     break;
                 }
             }

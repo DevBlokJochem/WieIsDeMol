@@ -12,6 +12,7 @@ public enum Permissions {
     COMMAND_PRESETS("widm.presets"),
     ITEM_GAMES_CREATE_GAME("widm.creategame"),
     ITEM_GAMES_MANAGE_OTHER_GAMES("widm.managegames"),
+    VULTOOL("widm.admin"),
     SPAWN_BLOCK_BREAK("widm.blockbreakspawn"),
     SPAWN_BLOCK_PLACE("widm.blockplacespawn"),
     SPAWN_DROP_ITEM("widm.dropitemspawn"),

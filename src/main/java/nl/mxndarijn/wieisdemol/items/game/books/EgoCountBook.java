@@ -45,17 +45,14 @@ public class EgoCountBook extends Book {
                 if (isItemTheSame(value)) {
                     if(!canItemExecute(p, key, value, BookFailurePlayersHolder.create().setData(AvailablePerson.EXECUTOR, p)))
                         return;
-                    AtomicInteger count = new AtomicInteger(0);
-                    game.getColors().forEach(g -> {
-                        if (!g.isAlive())
-                            return;
-                        if (g.getPlayer().isEmpty())
-                            return;
-                        if (g.getMapPlayer().getRole() == Role.EGO) {
-                            count.getAndIncrement();
-                        }
-                    });
-                    p.sendMessage(LanguageManager.getInstance().getLanguageString(LanguageText.GAME_EGOCOUNT_MESSAGE, Collections.singletonList(count.get() + "")));
+                    int count = 0;
+                    for (GamePlayer g : game.getColors()) {
+                        if(!g.isAlive()) continue;
+                        if(g.getPlayer().isEmpty()) continue;
+                        if(g.getMapPlayer().getRole() != Role.EGO) continue;
+                        count++;
+                    }
+                    p.sendMessage(LanguageManager.getInstance().getLanguageString(LanguageText.GAME_EGOCOUNT_MESSAGE, Collections.singletonList(count + "")));
                     break;
                 }
             }

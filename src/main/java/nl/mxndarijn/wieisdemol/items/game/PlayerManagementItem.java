@@ -15,6 +15,7 @@ import nl.mxndarijn.wieisdemol.data.Role;
 import nl.mxndarijn.wieisdemol.game.Game;
 import nl.mxndarijn.wieisdemol.game.GamePlayer;
 import nl.mxndarijn.wieisdemol.items.Items;
+import nl.mxndarijn.wieisdemol.managers.GameManager;
 import nl.mxndarijn.wieisdemol.managers.language.LanguageManager;
 import nl.mxndarijn.wieisdemol.managers.language.LanguageText;
 import nl.mxndarijn.wieisdemol.managers.world.GameWorldManager;
@@ -115,6 +116,7 @@ public class PlayerManagementItem extends MxItem {
                                                                 .build(),
                                                         (mxInv22, e32) -> {
                                                             game.addPlayer(playerUUID, gamePlayer);
+                                                            game.getGameInfo().getQueue().remove(p.getUniqueId());
                                                             p.closeInventory();
                                                         }
                                                 ));

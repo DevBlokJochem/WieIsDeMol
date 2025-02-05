@@ -109,7 +109,11 @@ public class GameInfo {
                             .addLore(ChatColor.GRAY + "Aantal wachtend: " + queue.size());
                 }
 
-                builder.addLore(ChatColor.YELLOW + "Klik hier om in de wachtrij te komen.");
+                if(queue.contains(p.getUniqueId())) {
+                    builder.addLore(ChatColor.YELLOW + "Klik hier uit de wachtrij te gaan.");
+                } else {
+                    builder.addLore(ChatColor.YELLOW + "Klik hier om in de wachtrij te komen.");
+                }
                 if (host == p.getUniqueId() || p.hasPermission(Permissions.ITEM_GAMES_MANAGE_OTHER_GAMES.getPermission())) {
                     builder.addLore(ChatColor.YELLOW + "Shift-Klik om de game te beheren.");
                 }

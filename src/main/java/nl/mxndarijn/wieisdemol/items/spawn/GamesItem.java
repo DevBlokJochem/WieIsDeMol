@@ -27,7 +27,6 @@ import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.Action;
-import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -83,9 +82,14 @@ public class GamesItem extends MxItem {
                                 p.sendMessage(ChatPrefix.WIDM + LanguageManager.getInstance().getLanguageString(LanguageText.GAMES_LEFT_QUEUE));
                                 p.closeInventory();
                             } else {
-                                upcomingGame.getQueue().add(p.getUniqueId());
-                                p.sendMessage(ChatPrefix.WIDM + LanguageManager.getInstance().getLanguageString(LanguageText.GAMES_ENTERED_QUEUE));
-                                p.closeInventory();
+                                if(GameManager.getInstance().getUpcomingGameList().stream().anyMatch(gameInfo -> gameInfo.getQueue().contains(p.getUniqueId()))) {
+                                    p.sendMessage("§cLeave de huidige queue om een andere game te joinen.");
+                                } else {
+                                    upcomingGame.getQueue().add(p.getUniqueId());
+                                    p.sendMessage(ChatPrefix.WIDM + LanguageManager.getInstance().getLanguageString(LanguageText.GAMES_ENTERED_QUEUE));
+                                    p.closeInventory();
+                                }
+
                             }
                             return;
                         }
