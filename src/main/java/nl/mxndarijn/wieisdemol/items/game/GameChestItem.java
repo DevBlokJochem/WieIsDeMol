@@ -66,7 +66,7 @@ public class GameChestItem extends MxItem {
                     (mxInv, e12) -> {
                         Location loc = chest.getLocation().getLocation(p.getWorld());
                         Block block = p.getWorld().getBlockAt(loc);
-                        if (block.getType() == Material.CHEST) {
+                        if (block.getType() == Material.CHEST || block.getType() == Material.TRAPPED_CHEST) {
                             Chest chestBlock = (Chest) block.getState();
                             p.openInventory(chestBlock.getBlockInventory());
                         } else {

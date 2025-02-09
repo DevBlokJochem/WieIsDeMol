@@ -27,6 +27,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.persistence.PersistentDataType;
 
 import java.util.*;
@@ -116,7 +117,7 @@ public class InvCheckBook extends Book {
 
     private void invCheck(Player p, Player player, GamePlayer gp, GamePlayer gamePlayer, Material type) {
         p.closeInventory();
-        for (Map.Entry<Integer, ? extends ItemStack> entry : p.getInventory().all(is.getType()).entrySet()) {
+        for (Map.Entry<Integer, ? extends ItemStack> entry : (p.getInventory()).all(is.getType()).entrySet()) {
             Integer key = entry.getKey();
             ItemStack value = entry.getValue();
             if (isItemTheSame(value)) {
@@ -131,6 +132,9 @@ public class InvCheckBook extends Book {
                             foundItems.add(itemStack);
                         }
                     }
+                }
+                if(player.getItemOnCursor().getType() == type) {
+                    foundItems.add(player.getItemOnCursor());
                 }
                 sendBookMessageToAll(LanguageManager.getInstance().getLanguageString(LanguageText.GAME_INVCHECK_RESULT, Arrays.asList(gp.getMapPlayer().getColor().getColor() + p.getName(), gamePlayer.getMapPlayer().getColor().getColor() + player.getName(), type.toString().toLowerCase(), foundItems.isEmpty() ? ChatColor.RED + "niet gevonden" : ChatColor.GREEN + "gevonden")));
                 break;

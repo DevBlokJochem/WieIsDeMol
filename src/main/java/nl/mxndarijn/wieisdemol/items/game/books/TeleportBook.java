@@ -82,11 +82,11 @@ public class TeleportBook extends Book {
 
                                 newList.add(new Pair<>(
                                         MxSkullItemStackBuilder.create(1)
-                                                .setSkinFromHeadsData(player.getUniqueId().toString())
-                                                .setName(ChatColor.GRAY + player.getName())
+                                                .setSkinFromHeadsData(player1.getUniqueId().toString())
+                                                .setName(ChatColor.GRAY + player1.getName())
                                                 .addLore(gameplayer.getMapPlayer().getColor().getDisplayName())
                                                 .addBlankLore()
-                                                .addLore(ChatColor.YELLOW + "Klik hier om " + player.getName())
+                                                .addLore(ChatColor.YELLOW + "Klik hier om " + player1.getName())
                                                 .addLore(" te teleporten naar " + player1.getName())
                                                 .build(),
                                         (mxInv1, e11) -> {
@@ -98,7 +98,7 @@ public class TeleportBook extends Book {
                                                     if(!canItemExecute(p, key, value, BookFailurePlayersHolder.create().setData(AvailablePerson.EXECUTOR, p)))
                                                         return;
                                                     player.teleport(player1);
-                                                    sendBookMessageToAll(LanguageManager.getInstance().getLanguageString(LanguageText.GAME_TELEPORT_MESSAGE, Arrays.asList(gp.getMapPlayer().getColor().getColor() + p.getName(), gamePlayer.getMapPlayer().getColor().getColor() + player.getName())));
+                                                    sendBookMessageToAll(LanguageManager.getInstance().getLanguageString(LanguageText.GAME_TELEPORT_MESSAGE, Arrays.asList(gp.getMapPlayer().getColor().getColor() + p.getName(), gamePlayer.getMapPlayer().getColor().getColor() + player1.getName())));
                                                     break;
                                                 }
                                             }

@@ -42,7 +42,7 @@ public class ChestConfigureTool extends MxItem {
         Preset preset = optionalPreset.get();
         PresetConfig config = preset.getConfig();
         ChestManager manager = preset.getChestManager();
-        if (e.getAction() == Action.RIGHT_CLICK_BLOCK && e.getClickedBlock() != null && e.getClickedBlock().getType() == Material.CHEST) {
+        if (e.getAction() == Action.RIGHT_CLICK_BLOCK && e.getClickedBlock() != null && (e.getClickedBlock().getType() == Material.CHEST || e.getClickedBlock().getType() == Material.TRAPPED_CHEST)) {
             e.setCancelled(true);
             MxLocation location = MxLocation.getFromLocation(e.getClickedBlock().getLocation());
             if (manager.containsLocation(location)) {

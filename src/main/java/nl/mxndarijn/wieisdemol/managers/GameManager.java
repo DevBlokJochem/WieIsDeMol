@@ -80,5 +80,6 @@ public class GameManager {
 
     public void removeUpcomingGame(GameInfo upcomingGame) {
         upcomingGameList.remove(upcomingGame);
+        upcomingGame.getQueue().clear();
     }
 }

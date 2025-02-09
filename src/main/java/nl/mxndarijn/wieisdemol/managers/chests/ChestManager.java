@@ -109,7 +109,7 @@ public class ChestManager {
         World w = Bukkit.getWorld(m.getWorldUID());
         for (ChestInformation chestInformation : chests) {
             Block b = chestInformation.getLocation().getLocation(w).getBlock();
-            if (b.getType() == Material.CHEST) {
+            if (b.getType() == Material.CHEST || b.getType() == Material.TRAPPED_CHEST) {
                 Chest c = (Chest) b.getState();
                 if (!c.getBlockInventory().isEmpty()) {
                     filled++;

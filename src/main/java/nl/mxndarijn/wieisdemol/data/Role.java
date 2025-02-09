@@ -10,7 +10,7 @@ public enum Role {
     SPELER("player", ChatColor.GOLD + "Speler", ChatColor.GOLD + "Speler-Peacekeeper", "gold-block", CustomInventoryOverlay.ROLES_PLAYER.getUnicodeCharacter(), Material.GOLD_BLOCK, ChatColor.GOLD + "Spelers", ChatColor.GRAY + "Hebben gewonnen", PlayerData.UserDataType.SPELERWINS),
     MOL("mol", ChatColor.DARK_AQUA + "Mol", ChatColor.DARK_AQUA + "Mol-Peacekeeper", "diamond-block", CustomInventoryOverlay.ROLES_MOLE.getUnicodeCharacter(), Material.DIAMOND_BLOCK, ChatColor.DARK_AQUA + "Mollen", ChatColor.GRAY + "Hebben gewonnen", PlayerData.UserDataType.MOLWINS),
     EGO("ego", ChatColor.GRAY + "Ego", ChatColor.GRAY + "Ego-Peacekeeper", "emerald-block", CustomInventoryOverlay.ROLES_EGO.getUnicodeCharacter(), Material.AIR, ChatColor.GRAY + "" + ChatColor.UNDERLINE + "Ego", ChatColor.GRAY + "heeft gewonnen", PlayerData.UserDataType.EGOWINS),
-    SHAPESHIFTER("shapeshifter", ChatColor.GREEN + "Shapeshifter", ChatColor.GREEN + "Ego-Shapeshifter", "emerald-block", CustomInventoryOverlay.ROLES_SHAPESHIFTER.getUnicodeCharacter(), Material.AIR, ChatColor.GREEN + "Shapeshifter", ChatColor.GRAY + "heeft gewonnen", PlayerData.UserDataType.EGOWINS);
+    SHAPESHIFTER("shapeshifter", ChatColor.GREEN + "Shapeshifter", ChatColor.GREEN + "Shapeshifter-Peacekeeper", "emerald-block", CustomInventoryOverlay.ROLES_SHAPESHIFTER.getUnicodeCharacter(), Material.AIR, ChatColor.GREEN + "Shapeshifter", ChatColor.GRAY + "heeft gewonnen", PlayerData.UserDataType.EGOWINS);
     private final String rolName;
     private final String peacekeeperName;
     private final String roleType;

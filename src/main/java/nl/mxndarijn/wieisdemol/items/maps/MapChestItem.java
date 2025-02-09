@@ -52,7 +52,7 @@ public class MapChestItem extends MxItem {
 
         if (e.getAction() == Action.RIGHT_CLICK_BLOCK) {
             assert e.getClickedBlock() != null;
-            if (e.getClickedBlock().getType() != Material.CHEST) {
+            if (e.getClickedBlock().getType() != Material.CHEST && e.getClickedBlock().getType() != Material.TRAPPED_CHEST) {
                 return;
             }
             Optional<ChestInformation> inf = map.getChestManager().getChestByLocation(MxLocation.getFromLocation(e.getClickedBlock().getLocation()));
@@ -77,7 +77,7 @@ public class MapChestItem extends MxItem {
                     (mxInv, e12) -> {
                         Location loc = chest.getLocation().getLocation(p.getWorld());
                         Block block = p.getWorld().getBlockAt(loc);
-                        if (block.getType() == Material.CHEST) {
+                        if (block.getType() == Material.CHEST || block.getType() == Material.TRAPPED_CHEST) {
                             Chest chestBlock = (Chest) block.getState();
                             p.openInventory(chestBlock.getBlockInventory());
                         } else {
@@ -98,7 +98,7 @@ public class MapChestItem extends MxItem {
 
     @EventHandler
     public void blockPlace(BlockPlaceEvent e) {
-        if (e.getBlockPlaced().getType() != Material.CHEST) {
+        if (e.getBlockPlaced().getType() != Material.CHEST && e.getBlockPlaced().getType() != Material.TRAPPED_CHEST) {
             return;
         }
         Player p = e.getPlayer();
@@ -115,7 +115,7 @@ public class MapChestItem extends MxItem {
 
     @EventHandler
     public void blockBreak(BlockBreakEvent e) {
-        if (e.getBlock().getType() != Material.CHEST) {
+        if (e.getBlock().getType() != Material.CHEST && e.getBlock().getType() != Material.TRAPPED_CHEST) {
             return;
         }
         Player p = e.getPlayer();

@@ -3,6 +3,7 @@ package nl.mxndarijn.wieisdemol.game.events;
 import net.kyori.adventure.text.Component;
 import nl.mxndarijn.wieisdemol.game.Game;
 import nl.mxndarijn.wieisdemol.game.GamePlayer;
+import nl.mxndarijn.wieisdemol.managers.GameManager;
 import nl.mxndarijn.wieisdemol.managers.ScoreBoardManager;
 import nl.mxndarijn.wieisdemol.managers.language.LanguageManager;
 import nl.mxndarijn.wieisdemol.managers.language.LanguageText;
@@ -53,6 +54,9 @@ public class GameDefaultEvents extends GameEvent {
 
     @EventHandler
     public void quit(PlayerQuitEvent e) {
+        GameManager.getInstance().getUpcomingGameList().forEach(gameInfo -> {
+            gameInfo.getQueue().remove(e.getPlayer().getUniqueId());
+        });
         if (!validateWorld(e.getPlayer().getWorld()))
             return;
         Optional<GamePlayer> gamePlayer = game.getGamePlayerOfPlayer(e.getPlayer().getUniqueId());

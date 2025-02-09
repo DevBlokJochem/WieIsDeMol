@@ -110,7 +110,7 @@ public class GameInfo {
                 }
 
                 if(queue.contains(p.getUniqueId())) {
-                    builder.addLore(ChatColor.YELLOW + "Klik hier uit de wachtrij te gaan.");
+                    builder.addLore(ChatColor.YELLOW + "Klik hier om uit de wachtrij te gaan.");
                 } else {
                     builder.addLore(ChatColor.YELLOW + "Klik hier om in de wachtrij te komen.");
                 }

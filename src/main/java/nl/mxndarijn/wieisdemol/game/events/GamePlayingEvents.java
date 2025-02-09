@@ -130,7 +130,7 @@ public class GamePlayingEvents extends GameEvent {
     public void chestAttachmentCanOpenChest(PlayerInteractEvent e) {
         if (e.getAction() == Action.RIGHT_CLICK_BLOCK) {
             assert e.getClickedBlock() != null;
-            if (e.getClickedBlock().getType() != Material.CHEST) {
+            if (e.getClickedBlock().getType() != Material.CHEST && e.getClickedBlock().getType() != Material.TRAPPED_CHEST) {
                 return;
             }
             Optional<ChestInformation> inf = game.getChestManager().getChestByLocation(MxLocation.getFromLocation(e.getClickedBlock().getLocation()));
@@ -443,7 +443,6 @@ public class GamePlayingEvents extends GameEvent {
         if(killer == null || player == null) return;
         if(killer.getRole() != Role.SHAPESHIFTER) return;
         killer.setRole(player.getRole());
-        player.setRole(Role.SHAPESHIFTER);
     }
 
     private MapPlayer getMapPlayer(Player player, Game game) {

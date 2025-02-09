@@ -9,6 +9,7 @@ import java.util.Optional;
 public enum BookData {
     DEATH_NOTE(Items.GAME_DEATHNOTE, AvailablePerson.EXECUTOR, AvailablePerson.SELECTED_PERSON_1),
     EGO_COUNT(Items.GAME_EGOCOUNT, AvailablePerson.EXECUTOR),
+    SHAPESHIFTER_COUNT(Items.GAME_SHAPESHIFTERCOUNT, AvailablePerson.EXECUTOR),
     INVCLEAR(Items.GAME_INVCLEAR, AvailablePerson.EXECUTOR, AvailablePerson.SELECTED_PERSON_1),
     SWITCH(Items.GAME_SWITCH, AvailablePerson.EXECUTOR, AvailablePerson.SELECTED_PERSON_1),
     SPELER_COUNT(Items.GAME_SPELERCOUNT, AvailablePerson.EXECUTOR),
