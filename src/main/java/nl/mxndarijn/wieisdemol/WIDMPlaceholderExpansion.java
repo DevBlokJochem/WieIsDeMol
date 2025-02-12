@@ -22,7 +22,7 @@ import java.util.Optional;
 public class WIDMPlaceholderExpansion extends PlaceholderExpansion {
     @Override
     public @NotNull String getIdentifier() {
-        return "widm-identifier";
+        return "widm";
     }
 
     @Override
@@ -34,12 +34,6 @@ public class WIDMPlaceholderExpansion extends PlaceholderExpansion {
     public @NotNull String getVersion() {
         return "1.0.0";
     }
-
-    @Override
-    public boolean persist() {
-        return true; // This is required or else PlaceholderAPI will unregister the Expansion on reload
-    }
-
 
     @Override
     public String onRequest(OfflinePlayer player, String params) {

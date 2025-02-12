@@ -8,7 +8,7 @@ import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 
 public enum PeacekeeperLoot {
-    HEAD(MxDefaultItemStackBuilder.create(Material.DIAMOND_HELMET)
+    HEAD(MxDefaultItemStackBuilder.create(Material.NETHERITE_HELMET)
             .setName(ChatColor.GOLD + "Peacekeeper's Helmet")
             .addLore(ChatColor.GOLD + "Peacekeeper-Item")
             .setUnbreakable(true)
@@ -16,7 +16,7 @@ public enum PeacekeeperLoot {
             .addEnchantment(Enchantment.BINDING_CURSE, 1, true)
             .build(),
             EquipmentSlot.HEAD),
-    CHESTPLATE(MxDefaultItemStackBuilder.create(Material.DIAMOND_CHESTPLATE)
+    CHESTPLATE(MxDefaultItemStackBuilder.create(Material.NETHERITE_CHESTPLATE)
             .setName(ChatColor.GOLD + "Peacekeeper's Chestplate")
             .addLore(ChatColor.GOLD + "Peacekeeper-Item")
             .setUnbreakable(true)
@@ -24,7 +24,7 @@ public enum PeacekeeperLoot {
             .addEnchantment(Enchantment.BINDING_CURSE, 1, true)
             .build(),
             EquipmentSlot.CHEST),
-    LEGGINGS(MxDefaultItemStackBuilder.create(Material.DIAMOND_LEGGINGS)
+    LEGGINGS(MxDefaultItemStackBuilder.create(Material.NETHERITE_LEGGINGS)
             .setName(ChatColor.GOLD + "Peacekeeper's Leggings")
             .addLore(ChatColor.GOLD + "Peacekeeper-Item")
             .setUnbreakable(true)
@@ -33,7 +33,7 @@ public enum PeacekeeperLoot {
             .build(),
             EquipmentSlot.LEGS),
 
-    BOOTS(MxDefaultItemStackBuilder.create(Material.DIAMOND_BOOTS)
+    BOOTS(MxDefaultItemStackBuilder.create(Material.NETHERITE_BOOTS)
             .setName(ChatColor.GOLD + "Peacekeeper's Boots")
             .addLore(ChatColor.GOLD + "Peacekeeper-Item")
             .setUnbreakable(true)
@@ -42,7 +42,7 @@ public enum PeacekeeperLoot {
             .build(),
             EquipmentSlot.FEET),
 
-    SWORD(MxDefaultItemStackBuilder.create(Material.DIAMOND_SWORD)
+    SWORD(MxDefaultItemStackBuilder.create(Material.NETHERITE_SWORD)
             .setName(ChatColor.GOLD + "Peacekeeper's Sword")
             .addLore(ChatColor.GOLD + "Peacekeeper-Item")
             .setUnbreakable(true)

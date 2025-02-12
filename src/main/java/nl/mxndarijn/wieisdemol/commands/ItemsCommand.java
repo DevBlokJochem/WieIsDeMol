@@ -303,18 +303,6 @@ public class ItemsCommand extends MxCommand {
                 .setListItems(items);
         if (container.hasPermissionToEdit(p)) {
             builder.setItem(MxSkullItemStackBuilder.create(1)
-                                    .setSkinFromHeadsData("red-minus")
-                                    .setName(ChatColor.RED + "Verwijder Opslag")
-                                    .addBlankLore()
-                                    .addLore(ChatColor.YELLOW + "Klik om de opslag te verwijderen")
-                                    .build(),
-                            46, (mxInv, e) -> {
-                                p.closeInventory();
-                                container.delete();
-                                p.sendMessage(ChatPrefix.WIDM + LanguageManager.getInstance().getLanguageString(LanguageText.COMMAND_ITEMS_CONTAINER_DELETED));
-                            }
-                    )
-                    .setItem(MxSkullItemStackBuilder.create(1)
                                     .setSkinFromHeadsData("wooden-plus")
                                     .setName(ChatColor.GRAY + "Voeg items toe")
                                     .addBlankLore()

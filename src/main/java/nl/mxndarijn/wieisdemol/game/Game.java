@@ -475,6 +475,7 @@ public class Game {
         if (upcomingGameStatus == UpcomingGameStatus.PLAYING && !firstStart) {
             firstStart = true;
             chestManager.onGameStart(this);
+            gameInfo.getQueue().clear();
         }
         if (upcomingGameStatus == UpcomingGameStatus.FINISHED) {
             role.ifPresent(rol -> {
@@ -748,6 +749,22 @@ public class Game {
                 return;
             OfflinePlayer player = Bukkit.getOfflinePlayer(p.getPlayer().get());
             sendMessageToAll(LanguageManager.getInstance().getLanguageString(LanguageText.GAME_VOTES_SUBJECT, Arrays.asList(player.getName(), p.getMapPlayer().getColor().getDisplayName(), votes.get(p) + "")));
+        });
+
+        hosts.forEach(host -> {
+            Player p = Bukkit.getPlayer(host);
+            if (p != null) {
+                for(GamePlayer gPlayer : playerList) {
+                    if(gPlayer.getPlayer().isEmpty()) continue;
+                    if(!gPlayer.isAlive()) continue;
+                    OfflinePlayer player = Bukkit.getOfflinePlayer(gPlayer.getPlayer().get());
+                    if(gPlayer.getVotedOn().isEmpty()) continue;
+                    Optional<UUID> targetUUID = gPlayer.getVotedOn().get().getPlayer();
+                    if(targetUUID.isEmpty()) continue;
+                    OfflinePlayer target = Bukkit.getOfflinePlayer(targetUUID.get());
+                    p.sendMessage(player.getName() + ": " + target.getName());
+                }
+            }
         });
 
         clearVotingResults();
