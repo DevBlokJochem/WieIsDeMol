@@ -22,7 +22,7 @@ import java.util.Optional;
 public class WIDMPlaceholderExpansion extends PlaceholderExpansion {
     @Override
     public @NotNull String getIdentifier() {
-        return "widm";
+        return "widm-identifier";
     }
 
     @Override

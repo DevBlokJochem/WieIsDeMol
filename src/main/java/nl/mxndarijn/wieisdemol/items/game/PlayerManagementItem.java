@@ -263,29 +263,6 @@ public class PlayerManagementItem extends MxItem {
                 .setAvailableSlots(MxInventoryIndex.ROW_ONE_TO_TWO)
                 .setListItems(list)
                 .setShowPageNumbers(false)
-                .setItem(MxSkullItemStackBuilder.create(1)
-                                .setSkinFromHeadsData("command-block")
-                                .setName(ChatColor.GRAY + "Automatisch Vullen")
-                                .addBlankLore()
-                                .addLore(ChatColor.YELLOW + "Klik hier om de game automatisch")
-                                .addLore(ChatColor.YELLOW + "te vullen met mensen uit de queue")
-                                .build(),
-                        26,
-                        (mxInv, e12) -> {
-                            p.closeInventory();
-                            List<GamePlayer> colors = new ArrayList<>(game.getColors());
-                            Collections.shuffle(colors);
-
-                            colors.forEach(gp -> {
-                                if (gp.getPlayer().isPresent())
-                                    return;
-                                if (!game.getGameInfo().getQueue().isEmpty()) {
-                                    game.addPlayer(game.getGameInfo().getQueue().get(0), gp);
-                                }
-                            });
-                            game.sendMessageToAll(LanguageManager.getInstance().getLanguageString(LanguageText.GAME_AUTOMATICALLY_FILLED));
-
-                        })
                 .build()
         );
     }
